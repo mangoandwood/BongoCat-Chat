@@ -1,0 +1,185 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "BongoCat",
+  "version": "../package.json",
+  "identifier": "com.ayangweb.BongoCat",
+  "build": {
+    "beforeDevCommand": "pnpm dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "pnpm build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "macOSPrivateApi": true,
+    "windows": [
+      {
+        "label": "main",
+        "title": "BongoCat",
+        "url": "index.html/#/",
+        "alwaysOnTop": true,
+        "transparent": true,
+        "shadow": false,
+        "decorations": false,
+        "acceptFirstMouse": true,
+        "skipTaskbar": true,
+        "maximizable": false
+      },
+      {
+        "label": "preference",
+        "url": "index.html/#/preference",
+        "visible": false,
+        "titleBarStyle": "Overlay",
+        "hiddenTitle": true,
+        "minWidth": 800,
+        "minHeight": 600,
+        "skipTaskbar": true
+      },
+      {
+        "label": "chat",
+        "title": "BongoCat 双人聊天",
+        "url": "index.html/#/chat",
+        "visible": false,
+        "width": 520,
+        "height": 720,
+        "minWidth": 400,
+        "minHeight": 520,
+        "resizable": true,
+        "maximizable": true,
+        "center": true
+      },
+      {
+        "label": "composer",
+        "title": "BongoCat 快速输入",
+        "url": "index.html/#/composer",
+        "visible": false,
+        "width": 460,
+        "height": 128,
+        "minWidth": 280,
+        "minHeight": 96,
+        "alwaysOnTop": true,
+        "transparent": true,
+        "shadow": false,
+        "decorations": false,
+        "resizable": true,
+        "skipTaskbar": true,
+        "center": true
+      },
+      {
+        "label": "bubble",
+        "title": "BongoCat 消息气泡",
+        "url": "index.html/#/bubble",
+        "visible": true,
+        "width": 390,
+        "height": 460,
+        "minWidth": 230,
+        "minHeight": 180,
+        "alwaysOnTop": true,
+        "transparent": true,
+        "shadow": false,
+        "decorations": false,
+        "resizable": true,
+        "skipTaskbar": true,
+        "center": true
+      },
+      {
+        "label": "notify-top",
+        "url": "index.html/#/notify-edge",
+        "visible": false,
+        "width": 800,
+        "height": 16,
+        "focus": false,
+        "alwaysOnTop": true,
+        "transparent": false,
+        "backgroundColor": "#ff2f92",
+        "shadow": false,
+        "decorations": false,
+        "resizable": false,
+        "skipTaskbar": true
+      },
+      {
+        "label": "notify-bottom",
+        "url": "index.html/#/notify-edge",
+        "visible": false,
+        "width": 800,
+        "height": 16,
+        "focus": false,
+        "alwaysOnTop": true,
+        "transparent": false,
+        "backgroundColor": "#ff2f92",
+        "shadow": false,
+        "decorations": false,
+        "resizable": false,
+        "skipTaskbar": true
+      },
+      {
+        "label": "notify-left",
+        "url": "index.html/#/notify-edge",
+        "visible": false,
+        "width": 16,
+        "height": 600,
+        "focus": false,
+        "alwaysOnTop": true,
+        "transparent": false,
+        "backgroundColor": "#ff2f92",
+        "shadow": false,
+        "decorations": false,
+        "resizable": false,
+        "skipTaskbar": true
+      },
+      {
+        "label": "notify-right",
+        "url": "index.html/#/notify-edge",
+        "visible": false,
+        "width": 16,
+        "height": 600,
+        "focus": false,
+        "alwaysOnTop": true,
+        "transparent": false,
+        "backgroundColor": "#ff2f92",
+        "shadow": false,
+        "decorations": false,
+        "resizable": false,
+        "skipTaskbar": true
+      }
+    ],
+    "security": {
+      "csp": null,
+      "dangerousDisableAssetCspModification": true,
+      "assetProtocol": {
+        "enable": true,
+        "scope": {
+          "allow": ["**/*"],
+          "requireLiteralLeadingDot": false
+        }
+      }
+    }
+  },
+  "bundle": {
+    "active": true,
+    "category": "Entertainment",
+    "createUpdaterArtifacts": true,
+    "targets": ["nsis", "dmg", "app", "appimage", "deb", "rpm"],
+    "shortDescription": "BongoCat",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "resources": ["assets/tray.png", "assets/models"]
+  },
+  "plugins": {
+    "updater": {
+      "dangerousInsecureTransportProtocol": true,
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEVBRjJFMzE3MjEwMUZEMTAKUldRUS9RRWhGK1B5NmdkemhKcUFrVjZBQXlzdExpakdWVEJDeU9XckVsbzV2cFIycVJOempWa2UK",
+      "endpoints": [
+        "http://api.upgrade.toolsetlink.com/v1/tauri/upgrade?tauriKey=KtGlsZUVXmWfjkRKCuqpfw&versionName={{current_version}}&target={{target}}&arch={{arch}}&appointVersionName=&devModelKey=&devKey=",
+        "https://gh-proxy.com/github.com/ayangweb/BongoCat/releases/latest/download/latest.json"
+      ]
+    },
+    "fs": {
+      "requireLiteralLeadingDot": false
+    }
+  }
+}

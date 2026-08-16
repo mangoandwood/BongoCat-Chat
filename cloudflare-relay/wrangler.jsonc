@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "bongocat-chat-relay",
+  "main": "src/index.js",
+  "compatibility_date": "2026-08-16",
+  "durable_objects": {
+    "bindings": [
+      { "name": "ROOMS", "class_name": "ChatRoom" }
+    ]
+  },
+  "migrations": [
+    { "tag": "v1", "new_sqlite_classes": ["ChatRoom"] }
+  ]
+}
