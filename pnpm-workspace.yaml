@@ -1,8 +1,10 @@
 packages:
   - '.'
+  - 'cloudflare-relay'
 
 allowBuilds:
   '@parcel/watcher': true
   core-js: true
   esbuild: true
   simple-git-hooks: true
+  workerd: set this to true or false
